@@ -1,0 +1,5 @@
+version: "3.9"
+services:
+  stackoverflow-db:
+    image: postgres
+    restart: unless-stopped

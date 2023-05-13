@@ -1,0 +1,52 @@
+{
+  "name": "@stackoverflow-clone/root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Noor Muhammad",
+  "license": "ICT",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "infra/*"
+  ],
+  "scripts": {
+    "build-all": "pnpm run --parallel -r build",
+    "nx-build-all": "nx run-many --target=build",
+    "lint": "node node_modules/prettier/bin-prettier --write \"**/*.{js,json,ts,yml,yaml}\"",
+    "prepare": "husky install",
+    "prettier": "node node_modules/prettier/bin-prettier --check \"**/*.{js,json,ts,yml,yaml}\"",
+    "prettier:write": "node node_modules/prettier/bin-prettier --write \"**/*.{js,json,ts,yml,yaml}\"",
+    "commit": "cz"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "fbjs-scripts": "^3.0.1",
+    "husky": "^8.0.0",
+    "init": "^0.1.2",
+    "jest": "^29.5.0",
+    "nx": "^16.1.4",
+    "prettier": "^2.8.8",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=16.4.0"
+  },
+  "packageManager": "pnpm@8.3.1",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

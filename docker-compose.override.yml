@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  stackoverflow-db:
+    environment:
+      - POSTGRES_USER=api
+      - POSTGRES_PASSWORD=development_pass
+      - POSTGRES_MULTIPLE_DATABASES="sof-api","sof-api-testing"
+    volumes:
+      - ./docker-utils:/docker-entrypoint-initdb.d
+      - sof_api_data:/data/postgres
+    ports:
+      - 5436:5432
+
+volumes:
+  sof_api_data: {}
