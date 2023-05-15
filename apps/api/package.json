@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@app/api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -17,7 +17,13 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.ts",
+    "migration:generate": "typeorm migration:create -n",
+    "migration:run": "typeorm migration:run -t each",
+    "migration:revert": "typeorm migration:revert",
+    "db:sync": "npm run typeorm:cli schema:sync"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -27,6 +33,7 @@
     "@nestjs/swagger": "^6.3.0",
     "@nestjs/terminus": "^9.2.2",
     "@nestjs/typeorm": "^9.0.1",
+    "@pkg/api-config": "workspace:^",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "debug": "^4.3.4",
@@ -41,7 +48,8 @@
     "url-join-ts": "^1.0.5",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "@pkg/api-types": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

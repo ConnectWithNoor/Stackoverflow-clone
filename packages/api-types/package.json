@@ -1,0 +1,32 @@
+{
+  "name": "@pkg/api-types",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "check-engines": "node ../../node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "clean": "rimraf build && rimraf coverage",
+    "prebuild": "npm run clean && npm run check-engines",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build",
+    "test": "npm run test:ci",
+    "test:ci": "jest --ci --collectCoverage --maxWorkers 2 --passWithNoTests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "@types/node": "18.15.11",
+    "@types/uuid": "^9.0.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "tslib": "^2.5.0",
+    "uuid": "^9.0.0"
+  }
+}
