@@ -1,0 +1,42 @@
+{
+  "name": "@pkg/api-database",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "tsc-version": "tsc --version",
+    "check-engines": "node ../../node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "clean": "rimraf build && rimraf coverage",
+    "prebuild": "npm run clean && npm run check-engines",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build",
+    "test": "npm run test:ci",
+    "test:ci": "jest --ci --collectCoverage --maxWorkers 2 --passWithNoTests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/testing": "^9.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "29.5.0",
+    "@types/node": "18.15.11",
+    "@types/uuid": "^9.0.1",
+    "express": "^4.18.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.2.0",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@nestjs/typeorm": "^9.0.1",
+    "@pkg/api-config": "workspace:^",
+    "typeorm": "^0.3.16"
+  }
+}

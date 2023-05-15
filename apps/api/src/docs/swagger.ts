@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as basicAuth from 'express-basic-auth';
-import { ConfigService } from '@dev/config';
+import { ConfigService } from '@pkg/api-config';
 import { SWAGGER_CONFIG } from './swagger.config';
 
 /**
