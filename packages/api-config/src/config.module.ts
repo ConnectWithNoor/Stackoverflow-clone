@@ -6,6 +6,7 @@ const configFactory = {
   useFactory: () => {
     const config = new ConfigService();
     config.loadFromEnv();
+    console.log("a", config);
     return config;
   },
 };

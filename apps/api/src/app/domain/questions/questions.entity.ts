@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
 } from 'typeorm';
-// import { AnswerEntity } from '../answers/answers.entity';
+import { AnswerEntity } from '../answers/answers.entity';
 
 @Entity('questions')
 export class QuestionEntity extends BaseEntity {
@@ -38,8 +38,8 @@ export class QuestionEntity extends BaseEntity {
   @Column({ type: 'jsonb', default: null })
   public user_metadata!: any;
 
-  //   @OneToMany(() => AnswerEntity, (event) => event.question)
-  //   public answers!: AnswerEntity[];
+  @OneToMany(() => AnswerEntity, (entity) => entity.question)
+  public answers!: AnswerEntity[];
 
   @CreateDateColumn({
     type: 'timestamptz',
